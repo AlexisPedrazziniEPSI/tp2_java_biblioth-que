@@ -4,19 +4,19 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "LIVRE")
-public class livre {
+@Table(name = "client")
+public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "TITRE")
-    private String titre;
+    @Column(name = "nom")
+    private String nom;
 
-    @Column(name = "AUTEUR")
-    private String auteur;
+    @Column(name = "PRENOM")
+    private String prenom;
 
-    @ManyToMany(mappedBy = "livres")
+    @OneToMany(mappedBy = "client")
     private Set<Emprunt> emprunts;
 
     public int getId() {
@@ -27,20 +27,20 @@ public class livre {
         this.id = id;
     }
 
-    public String getTitre() {
-        return titre;
+    public String getNom() {
+        return nom;
     }
 
-    public void setTitre(String titre) {
-        this.titre = titre;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    public String getAuteur() {
-        return auteur;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public void setAuteur(String auteur) {
-        this.auteur = auteur;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
     public Set<Emprunt> getEmprunts() {
