@@ -21,7 +21,7 @@ public class livrerepository {
         }
     }
 
-    private static EntityManager newEm() {
+    public static EntityManager newEm() {
         if (emf == null) {
             throw new IllegalStateException("livrerepository.init() must be called before using the repository.");
         }
